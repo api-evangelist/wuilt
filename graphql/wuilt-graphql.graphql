@@ -1,0 +1,1163 @@
+# generated: '2026-07-21'
+# method: searched
+# source: https://api.wuilt.com/graphql (live GraphQL introspection, HTTP 200)
+# note: Wuilt exposes a public, introspectable GraphQL endpoint (the website/e-commerce
+#       builder backend). SDL below rendered verbatim from the introspection response;
+#       raw introspection JSON preserved alongside as wuilt-introspection.json.
+
+schema {
+  query: Query
+}
+
+type Address {
+  id: ID!
+  site_id: ID!
+  address_line_1: String!
+  address_line_2: String
+  country: String!
+  state: String!
+  city: String!
+  zip_code: String!
+  active: Boolean!
+  marked_deleted: Boolean!
+  site_language_id: ID!
+  deleted_at: DateTime
+  created_at: DateTime!
+  Site: Site
+  phoneNumbers: [PhoneNumber]
+  Emails: [Email]
+  addressLanguage: Language
+}
+
+type AddressPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Address!]!
+}
+
+type Animation {
+  id: ID!
+  animation_name: String!
+  slug: String!
+  thumbnail: String!
+  active: Boolean!
+  default_value: Boolean!
+  created_by: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type AnimationPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Animation!]!
+}
+
+type BillingDomainRecords {
+  id: ID!
+  website_id: ID!
+  domain_id: ID!
+  billingRecord: [BillingRecord]
+  subscriptionObject: WebsiteDomain
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type BillingDomainRecordsPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [BillingDomainRecords!]!
+}
+
+type BillingRecord {
+  id: ID!
+  client_id: ID!
+  client: User
+  Website: Site
+  website_id: ID!
+  price: Float!
+  billable_type: String!
+  billable_id: ID!
+  payment_method: Int!
+  charge_id: String
+  card_id: String
+  agreement_id: String
+  processed: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type BillingRecordPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [BillingRecord!]!
+}
+
+type BusinessInfo {
+  id: ID!
+  site_id: ID!
+  site: Site
+  phoneNumbers: [PhoneNumber]
+  Emails: [Email]
+  business_name: String!
+  industry: String
+  slogan: String
+  logo: String
+  site_language_id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type BusinessInfoPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [BusinessInfo!]!
+}
+
+type Category {
+  id: ID!
+  name: String!
+  alias: String!
+  created_by: ID!
+  active: Boolean!
+  home_page: Boolean!
+  inner_page: Boolean!
+  sections: [Section]
+  fields: [CategoryFields]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CategoryFields {
+  id: ID!
+  category_id: ID!
+  name: String!
+  feild_type: String!
+  active: Boolean!
+  created_by: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CategoryFieldsPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [CategoryFields!]!
+}
+
+type CategoryPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Category!]!
+}
+
+type ClientPaymentCard {
+  id: ID!
+  client_id: ID!
+  client: User
+  card_id: String!
+  name: String!
+  brand: String!
+  country: String!
+  cvc_check: String!
+  exp_month: Int!
+  exp_year: Int!
+  funding: String!
+  last4: String!
+  active: Boolean!
+  marked_deleted: Boolean!
+  Payments: [Payment]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type ClientPaymentCardPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [ClientPaymentCard!]!
+}
+
+type ColorPallet {
+  id: ID!
+  pallet_name: String!
+  default_value: Boolean!
+  active: Boolean!
+  Colors: PalletColor
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type ColorPalletPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [ColorPallet!]!
+}
+
+type ContactDetails {
+  id: ID!
+  client_id: ID!
+  user: User
+  company: String!
+  password: String!
+  address_line_1: String!
+  address_line_2: String
+  city: String!
+  state: String!
+  country: String!
+  zipcode: String!
+  phone_cc: String!
+  phone_number: String!
+  customer_id: String!
+  contact_id: String!
+  reseller_active: Boolean!
+}
+
+type ContactDetailsPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [ContactDetails!]!
+}
+
+scalar Date
+
+input DateRangeInput {
+  from: DateTime!
+  to: DateTime!
+}
+
+scalar DateTime
+
+type Email {
+  id: ID!
+  emailable_id: ID!
+  emailable_type: String!
+  emailable: Emailable
+  email: String!
+  created_by: ID!
+  active: Boolean!
+  marked_deleted: Boolean!
+  deleted_at: DateTime
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type EmailPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Email!]!
+}
+
+union Emailable = BusinessInfo | Address
+
+type FontVariation {
+  id: ID!
+  headline_font: String!
+  body_font: String!
+  default_value: Boolean!
+  lang_id: ID!
+  active: Boolean!
+  created_by: ID!
+  Language: Language
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type FontVariationPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [FontVariation!]!
+}
+
+type Form {
+  id: ID!
+  site_id: ID!
+  form_json: String!
+  active: Boolean!
+  send_to: String!
+  Website: Site
+  page: Page
+  siteSection: SiteSection
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+  Submissions(id: [ID], first: Int, page: Int): FormSubmissionPaginator
+  SubmissionsWithTrashed(id: [ID], first: Int, page: Int): FormSubmissionPaginator
+}
+
+type FormPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Form!]!
+}
+
+type FormSubmission {
+  id: ID!
+  form_id: ID!
+  submitted_at: DateTime!
+  ip_address: String!
+  is_desktop: Boolean!
+  is_mobile: Boolean!
+  is_tablet: Boolean!
+  browser: String!
+  os: String!
+  viewed_app: Boolean!
+  viewed_app_at: DateTime
+  submissionValues: [SubmissionValue]
+  submissionValue: SubmissionValue
+  Form: Form
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+type FormSubmissionPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [FormSubmission!]!
+}
+
+type ImagePack {
+  id: ID!
+  images_credit: Int!
+  active: Boolean!
+  price: Float!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Language {
+  id: ID!
+  name: String
+  local_name: String
+  shorthand: String
+  code: String!
+}
+
+type LanguagePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Language!]!
+}
+
+type Menu {
+  id: ID!
+  name: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type MenuItem {
+  id: ID!
+  site_id: ID!
+  type_id: ID!
+  menu_id: ID!
+  title: String!
+  value: String!
+  page_id: ID!
+  email_subject: String
+  open_in_new_tab: Boolean!
+  sort_order: Int!
+  site_language_id: ID!
+  parent_id: ID
+  page: Page
+  menu: Menu
+  menuItemType: MenuItemType
+  language: WebsiteLanguage
+  Site: Site
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type MenuItemPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [MenuItem!]!
+}
+
+type MenuItemType {
+  id: ID!
+  type: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type MenuItemTypePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [MenuItemType!]!
+}
+
+type MenuPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Menu!]!
+}
+
+input OrderByClause {
+  column: String!
+  order: SortOrder!
+}
+
+enum OrderByRelationAggregateFunction {
+  COUNT
+}
+
+enum OrderByRelationWithColumnAggregateFunction {
+  AVG
+  MIN
+  MAX
+  SUM
+  COUNT
+}
+
+type Page {
+  id: ID!
+  site_id: ID!
+  page_name: String!
+  page_alias: String!
+  page_title: String!
+  seo_title: String
+  seo_description: String
+  seo_keywords: String
+  custom_js_head: String
+  custom_js_body: String
+  main_nav: Boolean!
+  site_language_id: ID!
+  sort_order: Int!
+  parent_id: ID
+  home_page: Boolean!
+  marked_deleted: Boolean!
+  Site: Site
+  Sections: [SiteSection]
+  UniversalSection: UniversalSection
+  getChildren: [Page]
+  recursiveChildren: [Page]
+  Language: WebsiteLanguage
+  created_at: DateTime!
+  updated_at: DateTime!
+  forms(id: [ID], first: Int, page: Int): FormPaginator
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  total: Int!
+  count: Int!
+  currentPage: Int!
+  lastPage: Int!
+}
+
+type PagePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Page!]!
+}
+
+type PaginatorInfo {
+  count: Int!
+  currentPage: Int!
+  firstItem: Int
+  hasMorePages: Boolean!
+  lastItem: Int
+  lastPage: Int!
+  perPage: Int!
+  total: Int!
+}
+
+type PalletColor {
+  id: ID!
+  pallet_id: ID!
+  color: String!
+  sort_order: Int!
+  colorPallet: ColorPallet
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type PalletColorPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [PalletColor!]!
+}
+
+type Payment {
+  id: ID!
+  amount: Float!
+  user_id: ID!
+  website_id: ID!
+  plan_id: ID!
+  charge_id: String!
+  invoice_id: String!
+  card_id: String!
+  ends_at: DateTime!
+  PaymentCard: ClientPaymentCard
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type PaymentPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Payment!]!
+}
+
+type PaypalWebhook {
+  id: ID!
+  event_name: String!
+  payload: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type PaypalWebhookPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [PaypalWebhook!]!
+}
+
+union Phonable = BusinessInfo | Address
+
+type PhoneNumber {
+  id: ID!
+  type_id: ID!
+  phone_number: String!
+  phoneable_id: ID!
+  phoneable_type: String!
+  created_by: ID!
+  active: Boolean!
+  marked_deleted: Boolean!
+  phoneable: Phonable
+  deleted_at: DateTime
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type PhoneNumberPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [PhoneNumber!]!
+}
+
+type Plan {
+  id: ID!
+  plan_name: String!
+  active: Boolean!
+  weight: Int!
+  price: Float!
+  length: String!
+  hasFreeDomain: Boolean!
+  images_credit: Int!
+  paypal_plan_id: String
+  stripe_plan_id: String
+  planUsers: [User]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type PlanPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Plan!]!
+}
+
+type PrivateSection {
+  id: ID!
+  site_id: ID!
+  section_id: ID!
+  active: Boolean!
+  Website: Site
+  Section: Section
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type PrivateSectionPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [PrivateSection!]!
+}
+
+type Query {
+  address(id: ID!): Address
+  animation(id: ID!): Animation
+  billingDomainRecord(id: ID!): BillingDomainRecords
+  billingRecord(id: ID!): BillingRecord
+  businessInfo(id: ID!): BusinessInfo
+  category(id: ID!): Category
+  categoryField(id: ID!): CategoryFields
+  clientPaymentCard(id: ID!): ClientPaymentCard
+  colorPallet(id: ID!): ColorPallet
+  contactDetail(id: ID!): ContactDetails
+  email(id: ID!): Email
+  fontVariant(id: ID!): FontVariation
+  form(id: ID!): Form
+  formSubmission(id: ID!): FormSubmission
+  language(id: ID!): Language
+  menu(id: ID!): Menu
+  menuItem(id: ID!): MenuItem
+  menuItemType(id: ID!): MenuItemType
+  page(id: ID!): Page
+  palletColor(id: ID!): PalletColor
+  payment(id: ID!): Payment
+  paypalWebhook(id: ID!): PaypalWebhook
+  phoneNumber(id: ID!): PhoneNumber
+  plan(id: ID!): Plan
+  privateSection(id: ID!): PrivateSection
+  section(id: ID!): Section
+  sectionField(id: ID!): SectionFeild
+  sectionGroupValue(id: ID!): SectionGroupValue
+  sectionValueGroup(id: ID!): SectionValueGroup
+  sectionValue(id: ID!): SectionValues
+  shutterStockImage(id: ID!): ShutterstockImages
+  site(id: ID!): Site
+  siteSection(id: ID!): SiteSection
+  style(id: ID!): Style
+  submissionValue(id: ID!): SubmissionValue
+  subscriptionRecord(id: ID!): SubscriptionRecord
+  universalSection(id: ID!): UniversalSection
+  user(id: ID!): User
+  websiteColorPallet(id: ID!): WebsiteColorPallet
+  websiteDomain(id: ID!): WebsiteDomain
+  websiteExternalDomain(id: ID!): WebsiteExternalDomain
+  websiteFile(id: ID!): WebsiteFile
+  websiteLanguage(id: ID!): WebsiteLanguage
+  websiteSettingsAttribute(id: ID!): WebsiteSettingsAttribute
+  websiteSettingsValue(id: ID!): WebsiteSettingsValue
+  websiteSocialLink(id: ID!): WebsiteSocialLink
+  websiteSubdomain(id: ID!): WebsiteSubDomain
+  addresses(first: Int, page: Int): AddressPaginator
+  animations(first: Int, page: Int): AnimationPaginator
+  billingDomainRecords(first: Int, page: Int): BillingDomainRecordsPaginator
+  billingRecords(first: Int, page: Int): BillingRecordPaginator
+  businessInfos(first: Int, page: Int): BusinessInfoPaginator
+  categories(first: Int, page: Int): CategoryPaginator
+  categoryFields(first: Int, page: Int): CategoryFieldsPaginator
+  clientPaymentCards(first: Int, page: Int): ClientPaymentCardPaginator
+  colorPallets(first: Int, page: Int): ColorPalletPaginator
+  contactDetails(first: Int, page: Int): ContactDetailsPaginator
+  emails(first: Int, page: Int): EmailPaginator
+  fontVariants(first: Int, page: Int): FontVariationPaginator
+  forms(first: Int, page: Int): FormPaginator
+  formSubmissions(first: Int, page: Int): FormSubmissionPaginator
+  languages(first: Int, page: Int): LanguagePaginator
+  menus(first: Int, page: Int): MenuPaginator
+  menuItems(first: Int, page: Int): MenuItemPaginator
+  menuItemTypes(first: Int, page: Int): MenuItemTypePaginator
+  pages(first: Int, page: Int): PagePaginator
+  palletColors(first: Int, page: Int): PalletColorPaginator
+  payments(first: Int, page: Int): PaymentPaginator
+  paypalWebhooks(first: Int, page: Int): PaypalWebhookPaginator
+  phoneNumbers(first: Int, page: Int): PhoneNumberPaginator
+  plans(first: Int, page: Int): PlanPaginator
+  privateSections(first: Int, page: Int): PrivateSectionPaginator
+  sections(first: Int, page: Int): SectionPaginator
+  sectionFields(first: Int, page: Int): SectionFeildPaginator
+  sectionGroupValues(first: Int, page: Int): SectionGroupValuePaginator
+  sectionValueGroups(first: Int, page: Int): SectionValueGroupPaginator
+  sectionValues(first: Int, page: Int): SectionValuesPaginator
+  shutterStockImages(first: Int, page: Int): ShutterstockImagesPaginator
+  sites(first: Int, page: Int): SitePaginator
+  siteSections(first: Int, page: Int): SiteSectionPaginator
+  styles(first: Int, page: Int): StylePaginator
+  submissionValues(formId: ID!, value: String, submittedAt: DateRangeInput, first: Int, page: Int): SubmissionValuePaginator
+  subscriptionRecords(first: Int, page: Int): SubscriptionRecordPaginator
+  universalSections(first: Int, page: Int): UniversalSectionPaginator
+  users(first: Int, page: Int): UserPaginator
+  websiteColorPallets(first: Int, page: Int): WebsiteColorPalletPaginator
+  websiteDomains(first: Int, page: Int): WebsiteDomainPaginator
+  websiteExternalDomains(first: Int, page: Int): WebsiteExternalDomainPaginator
+  websiteFiles(first: Int, page: Int): WebsiteFilePaginator
+  websiteLanguages(first: Int, page: Int): WebsiteLanguagePaginator
+  websitePalletColor(first: Int, page: Int): WebsitePalletColorPaginator
+  websiteSettingsAttributes(first: Int, page: Int): WebsiteSettingsAttributePaginator
+  websiteSettingsValues(first: Int, page: Int): WebsiteSettingsValuePaginator
+  websiteSocialLinks(first: Int, page: Int): WebsiteSocialLinkPaginator
+  websiteSubdomains(first: Int, page: Int): WebsiteSubDomainPaginator
+}
+
+type Section {
+  id: ID!
+  category_id: ID!
+  created_by: ID!
+  active: Boolean!
+  multiple_groups: Boolean!
+  design_view: Boolean!
+  plan_id: ID!
+  plan_default: Boolean!
+  private: Boolean!
+  section_settings: String!
+  getCategory: Category
+  sectionFields: [SectionFeild]
+  sectionPlan: Plan
+  siteSections: [SiteSection]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type SectionFeild {
+  id: ID!
+  section_id: ID!
+  cat_feild_id: ID!
+  label: String!
+  is_group: Boolean!
+  group_name: String
+  alias: String!
+  feild_type: String!
+  active: Boolean!
+  sort_order: Int!
+  required: Boolean!
+  email: Boolean!
+  max_char: Int
+  min_char: Int
+  Section: Section
+  categoryField: CategoryFields
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type SectionFeildPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SectionFeild!]!
+}
+
+type SectionGroupValue {
+  id: ID!
+  group_id: ID!
+  feild_id: ID!
+  value: String!
+  updated: Boolean!
+  categoryField: CategoryFields
+  valueGroup: SectionValueGroup
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type SectionGroupValuePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SectionGroupValue!]!
+}
+
+type SectionPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Section!]!
+}
+
+type SectionValueGroup {
+  id: ID!
+  section_value_id: ID!
+  group_order: Int!
+  marked_deleted: Boolean!
+  SectionValue: SectionValues
+  feildValues: SectionGroupValue
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type SectionValueGroupPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SectionValueGroup!]!
+}
+
+type SectionValues {
+  id: ID!
+  site_section_id: ID!
+  field_id: ID
+  value: String!
+  Section: Section
+  SiteSection: SiteSection
+  is_group: Boolean!
+  object_name: String
+  universal_section: Boolean!
+  updated: Boolean!
+}
+
+type SectionValuesPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SectionValues!]!
+}
+
+type ShutterstockImages {
+  id: ID!
+  image_id: ID!
+  site_id: ID!
+  purchased: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type ShutterstockImagesPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [ShutterstockImages!]!
+}
+
+type SimplePaginatorInfo {
+  count: Int!
+  currentPage: Int!
+  firstItem: Int
+  lastItem: Int
+  perPage: Int!
+  hasMorePages: Boolean!
+}
+
+type Site {
+  id: ID!
+  client_id: ID!
+  client: User
+  site_name: String!
+  logo: String
+  favicon: String
+  domainable_type: String
+  domainable_id: ID
+  industry: String!
+  font_variation_id: ID
+  animation_id: ID!
+  style_id: ID!
+  active: Boolean!
+  plan_id: ID!
+  temp_plan_id: ID
+  wizard_completed: Boolean!
+  images_credit: Int!
+  stripe_active: Boolean!
+  stripe_subscription: String
+  paypal_active: Boolean!
+  paypal_subscription: String
+  subscription_end_at: DateTime
+  marked_deleted: Boolean!
+  deleted_at: DateTime
+  created_at: DateTime!
+  updated_at: DateTime!
+  Address: [Address]
+  businessInfo: BusinessInfo
+  sections: SiteSection
+  sectionsByUniversalSection(universal_section_id: ID!): [SiteSection]
+  universalSections: [UniversalSection]
+  universalSectionsByHook(hook: ID!): [UniversalSection]
+  HeaderUniversalSections: [UniversalSection]
+  FooterUniversalSections: [UniversalSection]
+  SitePages: [Page]
+  SiteMenuItems: [MenuItem]
+  sitePlan: Plan
+  fontVariation: FontVariation
+  colorPallet: ColorPallet
+  animation: Animation
+  style: Style
+  socialLinks: [WebsiteSocialLink]
+  Languages: [Language]
+  enabledLanguages: [Language]
+  default_locale: [Language]
+  allLanguages: [Language]
+  sectionValues: SectionValues
+  payments: [Payment]
+  websiteSettings: [WebsiteSettingsValue]
+  externalDomain: WebsiteExternalDomain
+  websiteDomain: WebsiteDomain
+  Files: WebsiteFile
+  Forms(id: ID, first: Int, page: Int): FormPaginator
+  FormsThatHasSubmissions(id: ID, first: Int, page: Int): FormPaginator
+}
+
+type SitePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Site!]!
+}
+
+type SiteSection {
+  id: ID!
+  site_id: ID
+  page_id: ID!
+  section_id: ID
+  section_order: Int!
+  active: Boolean!
+  clone_id: ID
+  marked_deleted: Boolean!
+  created_by: ID
+  universal_section_id: ID
+  is_universal: Boolean!
+  section_settings: String!
+  getSite: Site
+  getSection: Section
+  getPage: Page
+  getUniversalSection: UniversalSection
+  SectionValue: [SectionValues]
+  SectionValueClone: [SectionValues]
+  ReferencedSection: SiteSection
+  SectionGroup: [SectionValues]
+  forms: [Form]
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type SiteSectionPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SiteSection!]!
+}
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+type Style {
+  id: ID!
+  style_name: String!
+  slug: String!
+  thumbnail: String!
+  active: Boolean!
+  default_value: Boolean!
+  created_by: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type StylePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [Style!]!
+}
+
+type SubmissionValue {
+  id: ID!
+  submission_id: ID!
+  field: String
+  value: String
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type SubmissionValuePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SubmissionValue!]!
+}
+
+type SubscriptionRecord {
+  id: ID!
+  client_id: ID!
+  site_id: ID!
+  resource_id: ID!
+  resource_type: String!
+  plan_id: ID!
+  external_id: String
+  payment_method: String!
+  collection_method: String
+  status: String!
+  billing_cycle_anchor: String
+  start: String
+  Site: Site
+  current_period_start: String
+  current_period_end: String
+  created_at: String!
+  cancel_at: String
+  cancel_at_period_end: Boolean
+  canceled_at: DateTime
+  ended_at: String
+  latest_invoice: String
+}
+
+type SubscriptionRecordPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [SubscriptionRecord!]!
+}
+
+enum Trashed {
+  ONLY
+  WITH
+  WITHOUT
+}
+
+type UniversalSection {
+  id: ID!
+  site_id: ID!
+  section_id: ID!
+  sort_order: Int!
+  hook: String!
+  website_language_id: ID!
+  home_display: Boolean
+  getSite: Site
+  getSection: Section
+  SectionValue: [SectionValues]
+  Language: WebsiteLanguage
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type UniversalSectionPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [UniversalSection!]!
+}
+
+type User {
+  id: ID!
+  username: String!
+  first_name: String
+  last_name: String
+  email: String!
+  password: String
+  password_temp: String
+  default_locale: String!
+  facebook_id: String
+  gplus_token: String
+  active: Boolean!
+  remember_token: String
+  verified_email: Boolean!
+  verification_token: String
+  reset_password_token: String
+  phone: String
+  last_login: DateTime
+  deactivated_at: DateTime
+  stripe_id: String
+  paypal_id: String
+  crm_contact_id: String
+  sitesCreated: [Site]
+  payments: [Payment]
+  paymentCards: [ClientPaymentCard]
+  Website: Site
+  palletColors: [WebsitePalletColor]
+}
+
+type UserPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [User!]!
+}
+
+type WebsiteColorPallet {
+  id: ID!
+  website_id: ID!
+  pallet_id: ID!
+  slider_value: Int
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteColorPalletPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteColorPallet!]!
+}
+
+type WebsiteDomain {
+  id: ID!
+  contact_id: ID
+  website_id: ID!
+  domain_name: String!
+  order_id: ID
+  zone_id: ID
+  zone_order_id: ID
+  eaqid: String
+  price: Float
+  expirey_date: DateTime
+  cname: String
+  agreement_id: String
+  executed: Boolean
+  subscription_id: String
+  paypal_active: Boolean
+  stripe_active: Boolean
+  payment_method: String
+  free_domain: Boolean
+  website: Site
+}
+
+type WebsiteDomainPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteDomain!]!
+}
+
+type WebsiteExternalDomain {
+  id: ID!
+  website_id: ID!
+  domain_name: String
+  host_iana: String
+  verified: Boolean
+  verified_at: DateTime
+  website: Site
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteExternalDomainPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteExternalDomain!]!
+}
+
+type WebsiteFile {
+  id: ID!
+  website_id: ID!
+  filename: String!
+  tags: String
+  marked_deleted: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteFilePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteFile!]!
+}
+
+type WebsiteLanguage {
+  id: ID!
+  site_id: ID!
+  lang_id: ID!
+  processed: Boolean!
+  processing: Boolean!
+  active: Boolean!
+  default_locale: String!
+  font_variation_id: ID
+  site: Site
+  getLanguage: Language
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteLanguagePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteLanguage!]!
+}
+
+type WebsitePalletColor {
+  id: ID!
+  website_pallet_id: ID!
+  color: String!
+  sort_order: Int!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsitePalletColorPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsitePalletColor!]!
+}
+
+type WebsiteSettingsAttribute {
+  id: ID!
+  name: String!
+  alias: String!
+  field_type: String!
+  active: Boolean!
+  settingValue: WebsiteSettingsValue
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteSettingsAttributePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteSettingsAttribute!]!
+}
+
+type WebsiteSettingsValue {
+  id: ID!
+  website_id: ID!
+  field_id: ID!
+  value: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteSettingsValuePaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteSettingsValue!]!
+}
+
+type WebsiteSocialLink {
+  id: ID!
+  website_id: ID!
+  social_network_id: ID!
+  url_text: String!
+  active: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteSocialLinkPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteSocialLink!]!
+}
+
+type WebsiteSubDomain {
+  id: ID!
+  website_id: ID!
+  sub_domain: String!
+  active: Boolean!
+  webiste: Site
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebsiteSubDomainPaginator {
+  paginatorInfo: PaginatorInfo!
+  data: [WebsiteSubDomain!]!
+}

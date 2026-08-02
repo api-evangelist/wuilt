@@ -1,7 +1,14 @@
 aid: wuilt
 name: Wuilt
-description: Wuilt is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Wuilt is an Egypt-based, Arabic-first no-code website and online-store builder that
+  lets individuals and small businesses create a website, e-commerce storefront, or
+  landing page in a few steps without prior design or development experience. The
+  platform bundles hosting, domains, templates, a store/checkout with shipping, forms,
+  multilingual sites, and a chat widget. Wuilt operates a public GraphQL backend at
+  api.wuilt.com/graphql (introspection enabled) that powers its builder app, exposing
+  read operations across sites, sections, pages, menus, forms, plans, payments, and
+  domains. Wuilt is a portfolio company of 500 Global.
 url: https://raw.githubusercontent.com/api-evangelist/wuilt/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +16,45 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://wuilt.com/favicon.ico
 tags:
 - Company
-apis: []
+- Website Builder
+- No-Code
+- E-commerce
+- Hosting
+- Domains
+- SaaS
+- GraphQL
+- Egypt
+- Small Business
+apis:
+- name: Wuilt GraphQL API
+  description: >-
+    Public GraphQL endpoint powering the Wuilt website/e-commerce builder. Introspection
+    is enabled; the schema exposes read queries across sites, pages, sections, menus,
+    forms, form submissions, plans, payments, subscriptions, and website domains.
+  humanURL: https://wuilt.com
+  baseURL: https://api.wuilt.com/graphql
+  properties:
+  - type: GraphQL
+    url: graphql/wuilt-graphql.graphql
+  - type: Introspection
+    url: graphql/wuilt-introspection.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +63,39 @@ maintainers:
 common:
 - type: Website
   url: https://wuilt.com
+- type: SignUp
+  url: https://app.wuilt.com/?loginAction=signup
+- type: Login
+  url: https://app.wuilt.com/
+- type: Pricing
+  url: https://wuilt.com/pricing
+- type: TermsOfService
+  url: https://wuilt.com/ar/terms-of-service
+- type: PrivacyPolicy
+  url: https://wuilt.com/privacy
+- type: Blog
+  url: https://wuilt.com/blog/
+- type: HelpCenter
+  url: https://help.wuilt.com/ar/help-center
+- type: Support
+  url: https://wuilt.com/contact-us
+- type: FAQ
+  url: https://wuilt.com/faqs
+- type: About
+  url: https://wuilt.com/about-us
+- type: GraphQL
+  url: graphql/wuilt-graphql.graphql
+- type: DomainSecurity
+  url: security/wuilt-domain-security.yml
+- type: LLMsTxt
+  url: llms/wuilt-llms.txt
+- type: Twitter
+  url: https://twitter.com/wuiltapp
+- type: LinkedIn
+  url: https://www.linkedin.com/company/wuilt/
+- type: Facebook
+  url: https://www.facebook.com/wuiltapp
+- type: Instagram
+  url: https://www.instagram.com/wuilt_app/
+- type: YouTube
+  url: https://www.youtube.com/channel/UCcUPMmxpd18tj-kXYPeooRA
