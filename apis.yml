@@ -85,10 +85,6 @@ common:
   url: https://wuilt.com/about-us
 - type: GraphQL
   url: graphql/wuilt-graphql.graphql
-- type: DomainSecurity
-  url: security/wuilt-domain-security.yml
-- type: LLMsTxt
-  url: llms/wuilt-llms.txt
 - type: Twitter
   url: https://twitter.com/wuiltapp
 - type: LinkedIn
