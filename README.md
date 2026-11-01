@@ -64,6 +64,79 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Wuilt is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Wuilt is an Egypt-based, Arabic-first no-code website and online-store builder that lets individuals and small businesses create a website, e-commerce storefront, or landing page in a few steps without prior design or development experience. The platform bundles hosting, domains, templates, a store/checkout with shipping, forms, multilingual sites, and a chat widget. Wuilt operates a public GraphQL backend at api.wuilt.com/graphql (introspection enabled) that powers its builder app, exposing read operations across sites, sections, pages, menus, forms, plans, payments, and domains. Wuilt is a portfolio company of 500 Global.
 
-Backed by: 500-global — https://wuilt.com
+**Areas:** Company · Website Builder · No-Code · E-Commerce · Hosting · Domains · Software-as-a-Service · GraphQL · Egypt · Small Business
+
+## Wuilt on APIs.io
+
+Everything profiled for Wuilt is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/wuilt/](https://apis.io/providers/wuilt/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Wuilt GraphQL API](https://apis.io/apis/wuilt/wuilt-graphql-api/) — Public GraphQL endpoint powering the Wuilt website/e-commerce builder. Introspection is enabled; the schema exposes read queries across sites, pages,…
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://wuilt.com)
+- [Pricing](https://wuilt.com/pricing)
+- [Sign up](https://app.wuilt.com/?loginAction=signup)
+- [Support](https://wuilt.com/contact-us)
+- [Blog](https://wuilt.com/blog/)
+- [Terms of service](https://wuilt.com/ar/terms-of-service)
+- [Privacy policy](https://wuilt.com/privacy)
+
+## API Evangelist rating
+
+**Kin Score 23.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 35.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 38.2 |
+
+**Agent readiness 12.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 7.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/wuilt/](https://apis.io/providers/wuilt/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Wuilt: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/wuilt/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
